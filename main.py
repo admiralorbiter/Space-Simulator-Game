@@ -7,6 +7,7 @@ from ship import Ship
 NUM_ASTRONAUTS=3
 astronaut_list=[]
 supplies={}
+mission=""
 
 def select_astro():
   for i in range(NUM_ASTRONAUTS):
@@ -41,8 +42,9 @@ print("")
 ship=Ship("UFO")
 ship.room_menu(astronaut_list)
 
-test_display_astro()
-ship.print_rooms()
+mission.get_results();
+
+
 
 
   

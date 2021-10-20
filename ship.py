@@ -20,23 +20,31 @@ class Ship:
             print(x, room_list[x])
 
     def room_menu(self, astronaut_list):
-        print("These rooms are empty: ")
-        self.get_empty_rooms()
-        print("")
-        print("Astronaut Info: ")
-        for x in astronaut_list:
-            x.get_info()
-        print("")
-        print("Using the single character id")
-        room=input("Which room would you like to assign? ")
-        while room not in room_key:
-            room=input("Which room would you like to assign? ")
-        print("Using the astronaut ID number")
-        person=int(input("Which astronaut would you like to assign? "))
-        while person < 0 or person > len(astronaut_list):
-            person=int(input("Which astronaut would you like to assign"))
 
-        #room_list[room_key[room]]=astronaut_list[person]
-        room_list[room_key[room]]=astronaut_list[person].id
-        astronaut_list[person].room=room_key[room]
-    
+        while True:
+            print("These rooms are empty: ")
+            self.get_empty_rooms()
+            print("")
+            print("Astronaut Info: ")
+            for x in astronaut_list:
+                x.get_info()
+            print("")
+            print("Using the single character id")
+            room=input("Which room would you like to assign? ")
+            while room not in room_key:
+                room=input("Which room would you like to assign? ")
+            print("Using the astronaut ID number")
+            person=int(input("Which astronaut would you like to assign? "))
+            while person < 0 or person > len(astronaut_list):
+                person=int(input("Which astronaut would you like to assign"))
+
+            #room_list[room_key[room]]=astronaut_list[person]
+            room_list[room_key[room]]=astronaut_list[person].id
+            astronaut_list[person].room=room_key[room]
+        
+            self.print_rooms()
+
+            choice=input("Do you wish to continue assigning? (y/n)")
+
+            if choice == "n":
+                break
